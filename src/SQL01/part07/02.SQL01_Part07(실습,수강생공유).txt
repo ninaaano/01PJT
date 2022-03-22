@@ -1,0 +1,59 @@
+//==============================================//
+//=================== 실   습 2 ===================//
+//==============================================//
+
+1.  이름,부서,직책,입사일 조회(ALIAS 사용)		
+
+SELECT
+name 이름,dept_name 부서,title 직책,in_date 입사일
+FROM emp_test;
+
+2.  이름,직책,연봉,특별 상여금 조회(ALIAS 사용)
+     (상여금은 연봉의 15%로 계산)
+
+SELECT
+name,title,salary*12,salary*12*1.15
+FROM emp_test;
+//
+SELECT
+name 이름,NVL(title,"인사발령전") 직책,NVL(salary,0)*12 연봉,NVL(salary,0)*12*1.15 "특별 상여금"
+FROM emp_test;
+     
+	>>> QUERY 하나 
+	NULL은 연산에서 제외(?) NULL은 어떻게 추출되는지 확인
+     
+	>>> QUERY 둘 
+			직책 NULL 인 경우 ==> 인사발령전
+			연봉 NULL 인경우 ==> 0
+			상여금 NULL 인경우 ==> 0      
+		출력되도록 Query 변경
+
+3. 이름,월급,일당,시급을 조회(ALIAS 사용)
+     (일당 :30일, 시급 : 8시간 기준)
+
+SELECT
+name 이름,salary 월급,salary/30 일당,salary/240 시급
+FROM emp_test;
+
+
+4.위의 QUERY문을 아래의 함수를 사용하여 정리 추출(ALIAS 사용)
+    ==> 반올림함수 ROUND(VALUE, 반올림자리수)
+    ==> 버림    함수 TRUNC (VALUE,  버림자리수)
+
+SELECT
+name 이름,salary 월급,salary/30 일당,salary/240 시급
+FROM emp_test;
+
+>>
+
+SELECT
+name 이름, ROUND(NVL(salary,0)/30,0) 일당, ROUND(NVL(salary,0)/240,0) 시급
+FROM emp_test;
+
+// round (~~30,1)을 쓰면 소수점 1이 출력된다.
+
+SELECT
+name 이름, TRUNC(NVL(salary,0)/30,0) 일당, TRUNC(NVL(salary,0)/240,0) 시급
+FROM emp_test;
+
+5. 위의 QUERY문(ROUND,TRUNC 사용한 것) 월급,일당,시급 NULL은 0 추출

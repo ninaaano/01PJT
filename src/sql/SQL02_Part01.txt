@@ -1,0 +1,158 @@
+SELECT
+name 이름, salary 월급, in_date 입사일
+FROM emp_test
+WHERE salary>=5000
+ORDER BY salary;
+
+SELECT
+name 이름, salary 월급, in_date 입사일
+FROM emp_test
+WHERE in_date>='2004-01-01'
+ORDER BY in_date;
+
+SELECT
+name 이름, salary 월급, in_date 입사일
+FROM emp_test
+WHERE name >='이순신666'
+ORDER BY name 
+
+SELECT name FROM emp_test ORDER BY name;
+
+SELECT
+name 이름, salary 월급, in_date 입사일
+FROM emp_test
+WHERE in_date>='2004-01-01' AND salary>=5000;
+
+SELECT
+name 이름, salary 월급, in_date 입사일
+FROM emp_test
+WHERE in_date>='2004-01-01' OR salary>=5000;
+
+SELECT
+name 이름, salary 월급, dept_name 부서,in_date 입사일
+FROM emp_test
+WHERE in_date>='2007-01-01' AND salary>=5000 OR dept_name='관리부';
+
+SELECT
+name 이름, salary 월급, dept_name 부서,in_date 입사일
+FROM emp_test
+WHERE in_date>='2007-01-01' AND (salary>=5000 OR dept_name='관리부');
+
+SELECT
+name 이름, salary 월급, in_date 입사일
+FROM emp_test
+WHERE salary BETWEEN 1000 AND 2500
+ORDER BY salary;
+
+SELECT
+name 이름, salary 월급, in_date 입사일
+FROM emp_test
+WHERE salary NOT BETWEEN 2500 AND 1000
+ORDER BY salary;
+
+SELECT
+name 이름, salary 월급, in_date 입사일
+FROM emp_test
+WHERE salary NOT BETWEEN 1000 AND 2500
+ORDER BY salary;
+
+SELECT
+name 이름, salary 월급, in_date 입사일
+FROM emp_test
+WHERE name BETWEEN '김유신222' AND '한국990'
+ORDER BY name;
+
+SELECT name FROM emp_test ORDER BY name;
+
+SELECT
+name 이름, salary 월급,dept_name 부서, in_date 입사일
+FROM emp_test
+WHERE name BETWEEN '한국990' AND '김유신222';
+
+SELECT
+name 이름, dept_name 부서
+FROM emp_test
+WHERE dept_name IN('관리부','영업부')
+ORDER BY dept_name;
+
+SELECT
+name 이름, dept_name 부서
+FROM emp_test
+WHERE dept_name='관리부' OR dept_name='영업부'
+ORDER BY dept_name;
+
+SELECT
+name 이름, dept_name 부서
+FROM emp_test
+WHERE dept_name NOT IN('관리부','영업부')
+ORDER BY dept_name;
+
+SELECT
+name 이름, dept_name 부서
+FROM emp_test
+WHERE name LIKE '김%';
+
+SELECT
+name 이름, dept_name 부서
+FROM emp_test
+WHERE name LIKE '김_';
+
+SELECT
+name 이름, dept_name 부서
+FROM emp_test
+WHERE name LIKE '김__';
+
+SELECT
+name 이름, dept_name 부서
+FROM emp_test
+WHERE name LIKE '_길_';
+
+INSERT INTO emp_test(name,title) VALUES('박_%','특수%');
+INSERT INTO emp_test(name,title) VALUES('김_%','특수%');
+SELECT*FROM emp_test;
+COMMIT;
+
+SELECT
+*
+FROM emp_test
+WHERE name LIKE '__%';
+
+SELECT
+*
+FROM emp_test
+WHERE name LIKE '_\_\%' ESCAPE '\';
+
+SELECT
+*
+FROM emp_test
+WHERE name LIKE '_?_?%' ESCAPE '?';
+
+SELECT
+name 이름, in_date 입사일
+FROM emp_test
+WHERE in_date LIKE '%0%';
+
+SELECT
+name 이름, salary 월급
+FROM emp_test
+WHERE salary>ALL(2500,5000);
+
+SELECT
+name 이름, salary 월급
+FROM emp_test
+WHERE salary>ANY(2500,5000);
+
+SELECT
+name 이름, salary 월급
+FROM emp_test
+WHERE salary NOT IN(3333,4444);
+
+SELECT
+name 이름, salary 월급
+FROM emp_test
+WHERE salary <> ALL(3333,4444);
+
+SELECT
+name 이름, salary 월급
+FROM emp_test
+WHERE salary != ALL(3333,4444);

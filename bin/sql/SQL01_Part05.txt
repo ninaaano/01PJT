@@ -1,0 +1,130 @@
+1. DML :: UPDATE : TABLE RECORD 수정
+
+SELECT * FROM emp_test;
+
+UPDATE emp_test
+SET id = 7
+WHERE name = 'SCOTT';
+
+SELECT * FROM emp_test;
+
+ROLLBACK;
+
+SELECT * FROM emp_test;
+////////////////////////////////////////////////
+
+///////////////////////////////////////////////
+UPDATE emp_test
+SET id = 7
+WHERE name = 'SCOTT';
+
+SELECT * FROM emp_test;
+
+COMMIT;
+/////////////////////////////////////////
+UPDATE emp_Test
+SET dept_name = '관리부'
+WHERE dept_name = '영업부';
+
+
+
+
+////////////////////////////////
+
+SELECT * FROM emp_test;
+
+COMMIT;
+
+UPDATE emp_test
+SET TITLE = '사장',salary = 2000, dept_name = '영업팀'
+WHERE name = '홍길순';
+
+UPDATE emp_test
+SET dept_name = '대기발령'
+WHERE salary >= 1500;
+
+UPDATE emp_Test
+SET title = '평사원';
+
+UPDATE emp_test
+SET salary = salary + 500;
+
+UPDATE emp_test
+SET dept_name = '대기발령'
+WHERE dept_name is null;
+
+//
+
+UPDATE emp_test
+SET dept_name = '대기발령'
+WHERE dept_name is not null;
+
+UPDATE emp_test
+SET title = '사원'
+WHERE id = 5;
+////////////////////////////////////////
+
+
+
+
+
+/////////////////////////////////////
+
+1. DML :: DELETE : TABLE RECORD 삭제
+
+DELETE FROM emp_test
+/* DELETE emp_test */
+WHERE title = '장군';
+
+SELECT * FROM emp_test;
+COMMIT;
+
+/////////////////////////////////////////////
+
+DELETE FROM emp_test
+WHERE id >= 6;
+
+SELECT * FROM emp_test;
+ROLLBACK;
+SELECT * FROM emp_test;
+
+///////////////////////////////////////////
+
+DELETE FROM emp_test
+WHERE id >= 5 AND id <= 6;
+
+SELECT * FROM emp_test;
+ROLLBACK;
+SELECT * FROM emp_test;
+
+// ==> 위와 아래 비교
+
+SELECT * FROM emp_test;
+COMMIT;
+SELECT * FROM emp_test;
+
+////////////////////////////////
+
+DELETE FROM emp_test
+WHERE id = 2 OR id = 3;
+
+SELECT * FROM emp_test;
+
+// ==>  아래는 의미를 갖는가?
+DELETE FROM emp_test
+WHERE id = 2 id = 3;
+
+SELECT * FROM emp_test;
+
+ROLLBACK;
+
+SELECT * FROM emp_test;
+//////////////////////////////////
+
+DELETE FROM emp_test;
+
+SELECT * FROM emp_test;
+
+ROLLBACK;
+
+SELECT * FROM emp_test;

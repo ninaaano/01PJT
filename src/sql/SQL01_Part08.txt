@@ -1,0 +1,104 @@
+SELECT
+name 이름, salary*12 연봉
+FROM emp_test
+ORDER BY salary*12 ASC NULLS FIRST;
+
+SELECT
+name 이름, salary*12 연봉
+FROM emp_test
+ORDER BY salary*12 DESC NULLS LAST;
+
+SELECT
+name 이름, salary*12 연봉
+FROM emp_test
+ORDER BY salary*12;
+
+SELECT
+name 이름, salary*12 연봉
+FROM emp_test
+ORDER BY salary;
+
+SELECT
+name 이름, salary*12 연봉
+FROM emp_test
+ORDER BY 연봉;
+
+SELECT
+name 이름, salary*12 연봉
+FROM emp_test
+ORDER BY 2;
+
+SELECT
+name 이름, salary*12 연봉,dept_name 부서
+FROM emp_test
+ORDER BY dept_name;
+
+SELECT
+name 이름, salary*12 연봉
+FROM emp_test
+ORDER BY dept_name;
+
+SELECT
+name 이름, salary*12 연봉,dept_name 부서
+FROM emp_test
+ORDER BY salary;
+
+SELECT
+name 이름, salary*12 연봉,dept_name 부서
+FROM emp_test
+ORDER BY salary,부서;
+
+SELECT
+name 이름, salary*12 연봉,dept_name 부서
+FROM emp_test
+ORDER BY 부서,salary;
+
+
+///////////////////////////////////////////////
+
+SELECT
+name||title
+FROM emp_test;
+
+SELECT
+name||' '||title
+FROM emp_test;
+
+SELECT dept_name 부서 FROM emp_test;
+
+SELECT
+DISTINCT dept_name 부서명
+FROM emp_test;
+
+SELECT
+DISTINCT dept_name,name
+FROM emp_test;
+
+INSERT
+INTO emp_test(name,dept_name)
+VALUES('홍길동','관리부');
+
+SELECT
+dept_name,name
+FROM emp_test;
+
+SELECT
+DISTINCT dept_name,name
+FROM emp_test;
+
+ROLLBACK;
+
+SELECT
+name 이름, salary*12 연봉
+FROM emp_test
+ORDER BY salary*12 ASC;
+
+SELECT
+name 이름, salary*12 연봉
+FROM emp_test
+ORDER BY salary*12 DESC;
+
+SELECT
+name 이름, salary*12 연봉
+FROM emp_test
+ORDER BY salary*12;
